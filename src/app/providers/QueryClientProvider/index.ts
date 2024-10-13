@@ -1,0 +1,1 @@
+export {QueryProvider as QueryClientProvider} from "./ui/QueryClientProvider.tsx"
