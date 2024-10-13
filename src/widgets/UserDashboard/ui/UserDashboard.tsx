@@ -1,6 +1,7 @@
 import { useGetUsers } from '@/entities/User';
 import styles from './UserDashboard.module.scss';
 import {PageLoader} from "@/widgets/PageLoader";
+import Input from "@/shared/ui/Input";
 
 const UserDashboard = () => {
     const {
@@ -20,40 +21,35 @@ const UserDashboard = () => {
     return (
         <div className={styles.dashboard}>
             <div className={styles.filters}>
-                <input
+                <Input
                     type="text"
                     placeholder="Filter by name"
                     value={filters.name}
                     onChange={(e) => handleFilterChange('name', e.target.value)}
-                    className={styles.filterInput}
                 />
-                <input
+                <Input
                     type="text"
                     placeholder="Filter by email"
                     value={filters.email}
                     onChange={(e) => handleFilterChange('email', e.target.value)}
-                    className={styles.filterInput}
                 />
-                <input
+                <Input
                     type="text"
                     placeholder="Filter by phone"
                     value={filters.phone}
                     onChange={(e) => handleFilterChange('phone', e.target.value)}
-                    className={styles.filterInput}
                 />
-                <input
+                <Input
                     type="text"
                     placeholder="Filter by website"
                     value={filters.website}
                     onChange={(e) => handleFilterChange('website', e.target.value)}
-                    className={styles.filterInput}
                 />
-                <input
+                <Input
                     type="text"
                     placeholder="Filter by address"
                     value={filters.address}
                     onChange={(e) => handleFilterChange('address', e.target.value)}
-                    className={styles.filterInput}
                 />
             </div>
             <button onClick={toggleSortOrder}>
