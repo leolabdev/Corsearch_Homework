@@ -1,10 +1,11 @@
 import './styles/reset.scss'
+import {MainPage} from "@/pages/MainPage";
 
 function App() {
 
   return (
     <>
-      hello
+      <MainPage/>
     </>
   )
 }
