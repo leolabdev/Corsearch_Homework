@@ -1,33 +1,16 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import {$api} from "@/shared/const/api.ts";
+import {User, UserFilters} from '../types/userTypes';
 
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    phone: string;
-    website: string;
-    address: {
-        street: string;
-        suite: string;
-        city: string;
-        zipcode: string;
-    };
-}
+
 
 const fetchUsers = async (): Promise<User[]> => {
     const { data } = await $api.get<User[]>('/users');
     return data;
 };
 
-interface UserFilters {
-    name: string;
-    email: string;
-    phone: string;
-    website: string;
-    address: string;
-}
+
 
 export const useGetUsers = () => {
     const [filters, setFilters] = useState<UserFilters>({

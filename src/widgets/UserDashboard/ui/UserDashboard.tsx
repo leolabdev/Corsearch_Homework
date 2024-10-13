@@ -1,4 +1,4 @@
-import { useGetUsers } from '@/entities/User';
+import {useGetUsers, UserFilters} from '@/entities/User';
 import styles from './UserDashboard.module.scss';
 import { PageLoader } from '@/widgets/PageLoader';
 import Input from '@/shared/ui/Input';
@@ -20,7 +20,7 @@ const UserDashboard = () => {
         filters,
     } = useGetUsers();
 
-    type FilterField = keyof typeof filters;
+    type FilterField = keyof UserFilters;
 
     const filterFields: FieldConfig<FilterField>[] = [
         { field: 'name', placeholder: 'Filter by name' },
