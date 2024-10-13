@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import {$api} from "@/shared/const/api.ts";
 
 export interface User {
     id: number;
@@ -17,7 +17,7 @@ export interface User {
 }
 
 const fetchUsers = async (): Promise<User[]> => {
-    const { data } = await axios.get<User[]>('https://jsonplaceholder.typicode.com/users');
+    const { data } = await $api.get<User[]>('/users');
     return data;
 };
 
