@@ -5,6 +5,7 @@ function App() {
 
   return (
     <>
+        {/*/of course we should use the router instead/*/}
       <MainPage/>
     </>
   )
