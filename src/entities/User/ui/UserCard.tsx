@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import styles from './UserCard.module.scss';
 
 interface Props {
@@ -9,12 +10,20 @@ interface Props {
         street: string;
         city: string;
     };
+    className?: string;
 }
 
 export const UserCard = (props: Props) => {
-    const { name, email, phone, website, address } = props;
+    const {
+        name,
+        email,
+        phone,
+        website,
+        address,
+        className
+    } = props;
     return (
-        <div className={styles.userCard}>
+        <div className={clsx(styles.userCard, className)}>
             <h3>{name}</h3>
             <p>Email: {email}</p>
             <p>Phone: {phone}</p>
