@@ -1,9 +1,10 @@
-import './reset.css'
+import './styles/reset.scss'
 
 function App() {
 
   return (
     <>
+      hello
     </>
   )
 }
