@@ -1,5 +1,6 @@
 import { useGetUsers } from '@/entities/User';
 import styles from './UserDashboard.module.scss';
+import {PageLoader} from "@/widgets/PageLoader";
 
 const UserDashboard = () => {
     const {
@@ -12,7 +13,8 @@ const UserDashboard = () => {
         filters,
     } = useGetUsers();
 
-    if (isLoading) return <div>Loading...</div>;
+    // it might be better to use here skeletons for cards
+    if (isLoading) return (<PageLoader/>);
     if (error) return <div>Error loading users</div>;
 
     return (
