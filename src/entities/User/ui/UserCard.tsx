@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import styles from './UserCard.module.scss';
+import {memo} from "react";
 
 interface Props {
     name: string;
@@ -13,7 +14,7 @@ interface Props {
     className?: string;
 }
 
-export const UserCard = (props: Props) => {
+const UserCard = memo((props: Props) => {
     const {
         name,
         email,
@@ -31,6 +32,6 @@ export const UserCard = (props: Props) => {
             <p>Address: {address.street}, {address.city}</p>
         </div>
     );
-};
+});
 
 export default UserCard;

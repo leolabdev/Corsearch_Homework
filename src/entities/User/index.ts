@@ -6,5 +6,5 @@ export type {
 } from "./types/userTypes.ts";
 
 
-export {UserCard} from "./ui/UserCard.tsx";
+export {default as UserCard} from "./ui/UserCard.tsx";
 
