@@ -3,7 +3,6 @@ import styles from './UserDashboard.module.scss';
 import { PageLoader } from '@/widgets/PageLoader';
 import Input from '@/shared/ui/Input';
 
-
 interface FieldConfig<T> {
     field: T;
     placeholder: string;
