@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+/.idea/modules.xml
+/.idea/Corsearch_Homework.iml
+/.idea/workspace.xml
