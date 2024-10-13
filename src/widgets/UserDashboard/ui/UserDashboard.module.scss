@@ -25,27 +25,9 @@ button {
     background-color: #2980b9;
   }
 }
-
 .userList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.userCard {
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-
-  p {
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-  }
-}
