@@ -1,4 +1,4 @@
-import {useGetUsers, UserFilters} from '@/entities/User';
+import {useGetUsers, UserCard, UserFilters} from '@/entities/User';
 import styles from './UserDashboard.module.scss';
 import { PageLoader } from '@/widgets/PageLoader';
 import Input from '@/shared/ui/Input';
@@ -50,13 +50,14 @@ const UserDashboard = () => {
             </button>
             <div className={styles.userList}>
                 {users.map((user) => (
-                    <div key={user.id} className={styles.userCard}>
-                        <h3>{user.name}</h3>
-                        <p>Email: {user.email}</p>
-                        <p>Phone: {user.phone}</p>
-                        <p>Website: {user.website}</p>
-                        <p>Address: {user.address.street}, {user.address.city}</p>
-                    </div>
+                    <UserCard
+                        key={user.id}
+                        name={user.name}
+                        email={user.email}
+                        phone={user.phone}
+                        website={user.website}
+                        address={user.address}
+                    />
                 ))}
             </div>
         </div>
