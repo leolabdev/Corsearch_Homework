@@ -1,7 +1,13 @@
 import { useGetUsers } from '@/entities/User';
 import styles from './UserDashboard.module.scss';
-import {PageLoader} from "@/widgets/PageLoader";
-import Input from "@/shared/ui/Input";
+import { PageLoader } from '@/widgets/PageLoader';
+import Input from '@/shared/ui/Input';
+
+
+interface FieldConfig<T> {
+    field: T;
+    placeholder: string;
+}
 
 const UserDashboard = () => {
     const {
@@ -14,43 +20,31 @@ const UserDashboard = () => {
         filters,
     } = useGetUsers();
 
-    // it might be better to use here skeletons for cards
-    if (isLoading) return (<PageLoader/>);
+    type FilterField = keyof typeof filters;
+
+    const filterFields: FieldConfig<FilterField>[] = [
+        { field: 'name', placeholder: 'Filter by name' },
+        { field: 'email', placeholder: 'Filter by email' },
+        { field: 'phone', placeholder: 'Filter by phone' },
+        { field: 'website', placeholder: 'Filter by website' },
+        { field: 'address', placeholder: 'Filter by address' },
+    ];
+
+    if (isLoading) return <PageLoader />;
     if (error) return <div>Error loading users</div>;
 
     return (
         <div className={styles.dashboard}>
             <div className={styles.filters}>
-                <Input
-                    type="text"
-                    placeholder="Filter by name"
-                    value={filters.name}
-                    onChange={(e) => handleFilterChange('name', e.target.value)}
-                />
-                <Input
-                    type="text"
-                    placeholder="Filter by email"
-                    value={filters.email}
-                    onChange={(e) => handleFilterChange('email', e.target.value)}
-                />
-                <Input
-                    type="text"
-                    placeholder="Filter by phone"
-                    value={filters.phone}
-                    onChange={(e) => handleFilterChange('phone', e.target.value)}
-                />
-                <Input
-                    type="text"
-                    placeholder="Filter by website"
-                    value={filters.website}
-                    onChange={(e) => handleFilterChange('website', e.target.value)}
-                />
-                <Input
-                    type="text"
-                    placeholder="Filter by address"
-                    value={filters.address}
-                    onChange={(e) => handleFilterChange('address', e.target.value)}
-                />
+                {filterFields.map(({ field, placeholder }) => (
+                    <Input
+                        key={field}
+                        type="text"
+                        placeholder={placeholder}
+                        value={filters[field]}
+                        onChange={(e) => handleFilterChange(field, e.target.value)}
+                    />
+                ))}
             </div>
             <button onClick={toggleSortOrder}>
                 Sort by name ({sortOrder})
