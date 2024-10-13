@@ -1,6 +1,3 @@
-# Corsearch_Homework
-
-
 # User Dashboard Project
 
 This project is a simple user dashboard that displays a list of users fetched from a REST API, with filtering and sorting capabilities. It is built using **React**, **TypeScript**, and **React Query** for data fetching. The project follows the principles of the [Feature-Sliced Design](https://feature-sliced.design/) architecture.
