@@ -21,7 +21,7 @@ const fetchUsers = async (): Promise<User[]> => {
     return data;
 };
 
-interface Filters {
+interface UserFilters {
     name: string;
     email: string;
     phone: string;
@@ -30,7 +30,7 @@ interface Filters {
 }
 
 export const useGetUsers = () => {
-    const [filters, setFilters] = useState<Filters>({
+    const [filters, setFilters] = useState<UserFilters>({
         name: '',
         email: '',
         phone: '',
@@ -67,7 +67,7 @@ export const useGetUsers = () => {
         return sorted;
     };
 
-    const handleFilterChange = (field: keyof Filters, value: string) => {
+    const handleFilterChange = (field: keyof UserFilters, value: string) => {
         setFilters((prevFilters) => ({
             ...prevFilters,
             [field]: value,
